@@ -1,0 +1,38 @@
+
+<div style="text-align:center">
+        <h1>
+          Welcome to {{title}}!
+        </h1>
+        <agm-map [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+      
+      </div>
+      <h2>Here are some links to help you start: </h2>
+      <h5>{{ a + b }}</h5>
+      
+      <button [disabled]="!listo" (click)="clickeado()"> hola</button>
+      <input type="text" placeholder="tu nombre" [(ngModel)]="nombre" />
+      <input type="text" placeholder="tu apellido" [(ngModel)]="nombre2" />
+      
+      <br />
+      
+      <p>mi nombre es {{ nombre }} {{ nombre2 }}</p>
+      
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2>lugares cercanos</h2>
+      <ul class="list-group">
+          <ng-container  *ngFor=" let lugar of lugares">
+            <li class="list-group-item" *ngIf="lugar.active"> 
+                <a routerLink="../detalle/{{lugar.id}}" [queryParams]="{ action: 'edit' }"> {{ lugar.nombre }}</a> </li>
+          </ng-container>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h2>Destacados</h2>
+      </div>
+      </div>
+      </div>

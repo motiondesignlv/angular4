@@ -1,13 +1,17 @@
+
+
 <div class="container">
 
-<h1>titulo</h1>
-
+<h1>{{ lugar.nombre }}</h1>
+<div class="card card-body bg-light">
+    <a routerLink="/lugares">lugares</a>/{{ lugar.nombre }}
+</div>
 <hr />
-<small>2 km</small>
+<small>{{lugar.distancia }} km</small>
 <br>
+<div>este lugar esta cerca al rededor de : {{lugar.cercania}} min en carro</div>
+<p>{{lugar.description}}</p>
 
-<p>esta es la description del lugar</p>
-
-<b>suscripcion: gratuita.</b>
+<b>suscripcion: {{lugar.plan}}.</b>
 
 </div>

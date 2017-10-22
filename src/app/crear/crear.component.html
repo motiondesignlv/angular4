@@ -1,0 +1,44 @@
+<div class=" card-body bg-light">
+  <a routerLink="/lugares">lugares</a>/crear
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+          <label for="">Nombre de empresa</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.nombre">
+          <br>
+          <label for="">cercania</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.cercania">
+          <br>
+          <label for="">distancia</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.distancia">
+          <br>
+          <label for="">tipo de plan</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.pan">
+          <br>
+          <label for="">activo?</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.activo">
+          <br>
+         
+          <h3>Datos y direccion</h3>
+          <label for="">direccion</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.direccion"/>
+          <hr>
+          <label for="">zip code</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.zip">
+          <br>
+          <label for="">ciudad</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.ciudad">
+          <br>
+          <label for="">pais</label>
+          <input type="text" class="form-control" [(ngModel)]="lugar.pais">
+          <br>
+
+          <a  class="btn btn-primary" (click)="guardarLugar()">enviar</a>
+          <a  class="btn btn-default" routerLink="/lugares">cancelar</a>
+        </div>
+    
+
+
+</div>

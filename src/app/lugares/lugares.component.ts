@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LugaresService } from '../services/lugares.service';
+
 
 @Component({
   selector: 'app-lugares',
@@ -13,26 +15,19 @@ export class LugaresComponent {
   nombre2:string = '';
   lat:number = 25.9465709;
   lng:number = -80.1377101;
-  lugares:any = [
-    
-      {id: 1, plan: 'pagado',   cercania:1, distancia: 1,   active: true, nombre:'floristeria numero 1'},
-      {id: 2, plan: 'gratuito', cercania:1, distancia: 1.8, active: false, nombre:'floristeria numero 2'},
-      {id: 3, plan: 'pagado',   cercania:2, distancia: 2.5, active: true, nombre:'floristeria numero 3'},
-      {id: 4, plan: 'pagado',   cercania:3, distancia: 6.4, active: true, nombre:'floristeria numero 4'},
-      {id: 5, plan: 'gratuito', cercania:3, distancia: 4.8, active: false, nombre:'floristeria numero 5'},
-      {id: 6, plan: 'pagado',   cercania:2, distancia: 2.8, active: true, nombre:'floristeria numero 6'},
-      {id: 7, plan: 'gratuito', cercania:3, distancia: 7,   active: true, nombre:'floristeria numero 7'},
-      {id: 8, plan: 'pagado',   cercania:1, distancia: 0.8, active: true, nombre:'floristeria numero 8'},
-      {id: 9, plan: 'pagado',   cercania:2, distancia: 2.3, active: false, nombre:'floristeria numero 9'}
-   
-  ]
 
-
-  constructor(){
+  lugares = null;
+  constructor(private lugaresService: LugaresService){
     setTimeout(() => {
       this.listo = true
-    },3000)
+    },3000);
+    lugaresService.getLugares()
+      .valueChanges().subscribe(lugares => {
+        console.log(lugares)
+        this.lugares = lugares;
+    });
   }
+
   clickeado(){
     console.log("workss")
   }

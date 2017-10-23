@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class ContactoComponent {
-lat = 25.9545144;
-lng = -80.1454307;
+lat = 0;
+lng = 0;
 zoom = 4;
 }

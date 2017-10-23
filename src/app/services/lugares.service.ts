@@ -13,15 +13,20 @@ export class LugaresService {
         {id: 5, plan: 'pagado', cercania: 3, distancia: 35, active: true, nombre:'Hotel la Gracia'},
         {id: 6, plan: 'gratuito', cercania: 3, distancia: 120, active: false, nombre:'Zapatería el Clavo'},
     ];
-
-    constructor(private afDB: AngularFireDatabase, private http: Http ){}
+    
+    constructor(private afDB:AngularFireDatabase, private http: Http ){}
     public getLugares() {
         return this.afDB.list('lugares/');
-        
+            
     }
     public buscarLugar(id) {
         return this.lugares.filter((lugar) => { return lugar.id == id })[0] || null;
+        // return this.lugares.filter((lugar) => { return lugar.id == id })[0] || null;
+    }
      
+
+    public editarLugar(lugar){
+        this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
     }
 
     public guardarLugar(lugar){

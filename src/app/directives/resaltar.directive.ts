@@ -12,7 +12,6 @@ export class ResaltarDirective implements OnInit{
         if(this.plan ==="pagado"){
             this.renderer.setStyle(this.elRef.nativeElement, 'background-color', '#ffffbc');
             this.renderer.setStyle(this.elRef.nativeElement, 'font-weight', 'bolder')
-            
         }
     }
 }

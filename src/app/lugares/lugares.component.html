@@ -3,6 +3,7 @@
         <h1>
           Welcome to {{title}}!
         </h1>
+        <div class="bg-danger" *ngIf="mostrar"> {{error}} </div>
         <agm-map [latitude]="lat" [longitude]="lng">
             <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
           </agm-map>
@@ -28,7 +29,11 @@
       <ul class="list-group">
           <ng-container  *ngFor=" let lugar of lugares">
             <li class="list-group-item" > 
-                <a routerLink="../detalle/{{lugar.id}}" [queryParams]="{ action: 'edit' }"> {{ lugar.nombre }}</a> </li>
+                <a routerLink="../detalle/{{lugar.id}}" [queryParams]="{ action: 'edit' }"> <h3>{{ lugar.nombre }}</h3></a> 
+                
+                <small style="float: right;">creado {{lugar.id | date:'mediumTime' | uppercase}}</small>
+                <p>{{lugar.descripcion}}</p>
+                </li>
           </ng-container>
         </ul>
       </div>
